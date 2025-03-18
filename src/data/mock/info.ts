@@ -1,8 +1,4 @@
-interface PersonalInfo {
-  name: string;
-  stack: string[];
-  bio: string;
-}
+import type { PersonalInfo } from "../../types/info.types";
 
 export const Info: PersonalInfo = {
   name: "Luis Gomez",

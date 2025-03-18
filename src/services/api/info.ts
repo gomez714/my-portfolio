@@ -1,10 +1,5 @@
 import { Info } from '../../data/mock/info';
-
-interface PersonalInfo {
-  name: string;
-  stack: string[];
-  bio: string;
-}
+import type { PersonalInfo } from '../../types/info.types';
 
 export class InfoService {
   static async getInfo(): Promise<PersonalInfo> {

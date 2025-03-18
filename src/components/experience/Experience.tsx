@@ -33,7 +33,7 @@ const TimelineItem = (items: ExperienceType[]) => {
           <div className="text-textColor leading-6 text-justify md-mx:text-sm xs-mx:text-xs">
             {item.desc}
           </div>
-          <div className="text-lg font-medium text-color md-mx:textbase sm-mx:text-sm xs-mx:text-xs flex gap-1">
+          <div className="text-lg font-medium text-textColor md-mx:text-base sm-mx:text-sm xs-mx:text-xs flex gap-1">
             <div className="font-semibold text-white">Skills:</div>
             <div className="flex flex-wrap gap-1">
               {item.skills.map((skill) => (
