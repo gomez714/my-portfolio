@@ -1,16 +1,19 @@
 import { Badge, Button, Card, Group, Image, Indicator, Text, useMatches } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import FullProjectModal from "./FullProjectModal";
+import { Project } from "../../types/project.types";
 
-const ProjectCard = ({ project }: { project: any }) => {
+const ProjectCard = ({ project }: { project: Project }) => {
   const [opened, { open, close }] = useDisclosure(false);
   const badge=useMatches({
       xsm:"sm", md:"md", lg:"lg"
   });
+  
   return (
     <div className="w-[32%] lg-mx:w-[46%] md-mx:w-[48%] sm-mx:w-[90%] xs-mx:w-full" data-aos="fade-up" data-aos-duration="800">
       <Card onClick={open}  
-        className="!bg-bgColor cursor-pointer transition-transform duration-300 ease-in-out hover:!scale-[1.02] mb-5 hover:!shadow-[0_0_10px_1px_#64FFDA80] xs-mx:!shadow-[0_0_10px_1px_#64FFDA80] !border-primaryColor border-2"  
+        className="!bg-bgColor cursor-pointer transition-transform duration-300 ease-in-out hover:!scale-[1.02] mb-5 
+          hover:!shadow-[0_0_10px_1px_#64FFDA80] xs-mx:!shadow-[0_0_10px_1px_#64FFDA80] !border-primaryColor border-2"  
         shadow="lg" 
         padding="sm" 
         radius="lg" 

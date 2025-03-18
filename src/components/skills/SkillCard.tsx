@@ -1,8 +1,9 @@
+import React from 'react';
+import type { SkillCategory } from '../../types/skill.types';
 import { Avatar } from "@mantine/core";
 
-interface Skill {
-  title: string;
-  skills: string[];
+interface SkillCardProps {
+  skill: SkillCategory;
 }
 
 const SkillBadge = (skills: string[]) => {
@@ -17,7 +18,7 @@ const SkillBadge = (skills: string[]) => {
   ))
 }
 
-const SkillCard = ({ skill }: { skill: Skill }) => {
+const SkillCard = ({ skill }: SkillCardProps) => {
   return (
     <div 
       data-aos="fade-up" 

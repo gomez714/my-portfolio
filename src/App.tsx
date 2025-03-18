@@ -1,6 +1,6 @@
 import "@mantine/core/styles.css"
 import './App.css';
-import HomePage from './Pages/HomePage';
+import HomePage from './pages/HomePage';
 import { MantineProvider, createTheme } from '@mantine/core';
 
 const theme = createTheme({

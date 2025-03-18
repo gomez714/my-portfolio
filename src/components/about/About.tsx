@@ -1,19 +1,38 @@
+import React, { useEffect, useState } from 'react';
+import { InfoService } from "../../services/api";
+import Typewriter from "typewriter-effect";
 import { Button } from "@mantine/core";
-import { Info } from "../User";
-import Typewriter from 'typewriter-effect';
-import LG_City from "../assets/LG-City.png";
+import LG_City from "../../assets/LG-City.png";
+
+interface PersonalInfo {
+  name: string;
+  stack: string[];
+  bio: string;
+}
 
 const About = () => {
+  const [info, setInfo] = useState<PersonalInfo | null>(null);
+
+  useEffect(() => {
+    const loadInfo = async () => {
+      const data = await InfoService.getInfo();
+      setInfo(data);
+    };
+    loadInfo();
+  }, []);
+
+  if (!info) return null;
+
   return (
     <div className="flex overflow-hidden justify-around items-center font-mono px-16 h-[80vh]" id="bg">
       <div className="ml-20 w-3/5 flex flex-col">
         <div className="text-primaryColor text-3xl">Hi, I am</div>
-        <div className="text-white text-[4.25rem] font-extrabold">{Info.name}</div>
+        <div className="text-white text-[4.25rem] font-extrabold">{info.name}</div>
         <div className="text-white text-4xl flex font-semibold">I'm a&nbsp;<span className="text-primaryColor">
-            <Typewriter options={{ strings: Info.stack, autoStart: true, loop: true, }} /> 
+            <Typewriter options={{ strings: info.stack, autoStart: true, loop: true, }} /> 
           </span>
         </div>
-        <div className="text-textColor text-xl my-8 text-justify font-semibold">{Info.bio}</div>
+        <div className="text-textColor text-xl my-8 text-justify font-semibold">{info.bio}</div>
         <Button component='a' href="https://github.com/gomez714" target="_blank" size="lg" variant="filled" color="primaryColor" className="!text-bgColor !w-fit">Check Resume</Button>
       </div>
       <div className="h-[45vh] w-[25vw] overflow-hidden rounded-full mr-14 bg-primaryColor" id="photo">

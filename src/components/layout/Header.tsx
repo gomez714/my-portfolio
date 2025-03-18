@@ -4,14 +4,14 @@ import SideBar from "./SideBar";
 const links = ["About", "Skills", "Experience", "Projects", "Contact"]
 
 const navLinks = (col: boolean) => {
-  return links.map((link, index) => {
+  return links.map((link) => {
     return (
       <a 
-        key={index} 
+        key={link} 
         className={`${col ? 'flex flex-col items-center':''} text-textColor text-xl font-mono hover:text-primaryColor`} 
         href={`#${link}`}
       >
-        <span className="text-primaryColor">0{index+1}. </span>{link}
+        <span className="text-primaryColor">0{links.indexOf(link)+1}. </span>{link}
       </a>
     )
   })

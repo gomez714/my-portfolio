@@ -1,11 +1,11 @@
-import Header from "../Components/Header"
-import Mail from "../Components/Mail";
-import Social from "../Components/Social";
-import About from "../Components/About";
-import Projects from "../Components/Projects";
-import Skills from "../Components/Skills";
-import Experience from "../Components/Experience";
-import Contact from "../Components/Contact";
+import Header from "../components/layout/Header"
+import Mail from "../components/contact/Mail";
+import Social from "../components/common/Social";
+import About from "../components/about/About";
+import Projects from "../components/projects/Projects";
+import Skills from "../components/skills/Skills";
+import Experience from "../components/experience/Experience";
+import Contact from "../components/contact/Contact";
 
 const HomePage = () => {
   return (
