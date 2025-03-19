@@ -21,7 +21,7 @@ const FullProjectModal = ({ opened, close, project }: ProjectModalProps) => {
   const btn =useMatches({xs:'xs',sm:'sm',md:'md',lg:'lg'});
 
   return (
-    <Modal.Root scrollAreaComponent={ScrollArea.Autosize} size="70%" centered className="font-mono" opened={opened} onClose={close}>
+    <Modal.Root scrollAreaComponent={ScrollArea.Autosize} size="auto" centered className="font-mono" opened={opened} onClose={close}>
       <Modal.Overlay className="!backdrop-opacity-85 blur-sm" />
       <Modal.Content className="!rounded-3xl">
         <Modal.Header className="!bg-bgColor xs-mx:!p-2 !border-primaryColor !border-2 !border-b-0 !rounded-tl-3xl !rounded-tr-3xl">

@@ -27,7 +27,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item }) => {
           duration-300 ease-in-out flex flex-col gap-2 border-primaryColor p-4 rounded-2xl sm-mx:p-2"
       >
         <div className="flex gap-2 items-center">
-          <img className="rounded-lg w-16 md-mx:w-14" src="" alt="Company" />
+          <img className="rounded-lg w-20 md-mx:w-16" src={item.imgUrl} alt={`${item.company} logo`} />
           <div className="flex flex-col">
             <div className="text-white text-2xl font-semibold sm-mx:text-xl xs-mx:text-lg xs-mx:text-base">{item.role}</div>
             <div className="text-lg font-semibold text-textColor md-mx:text-base sm-mx:text-sm xs-mx:text-xs">{item.company} &#x2022; {item.date}</div>
@@ -35,7 +35,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item }) => {
         </div>
         
         <div className="text-textColor leading-6 text-justify md-mx:text-sm xs-mx:text-xs">
-          {item.desc}
+          {item.description}
         </div>
         <div className="text-lg font-medium text-textColor md-mx:text-base sm-mx:text-sm xs-mx:text-xs flex gap-1">
           <div className="font-semibold text-white">Skills:</div>
