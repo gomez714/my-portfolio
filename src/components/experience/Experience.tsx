@@ -20,7 +20,8 @@ const TimelineItem = (items: ExperienceType[]) => {
         bullet={<IconBriefcaseFilled className="!text-bgColor" size={size} />}
       >
         <div 
-          className="border shadow-[0_0_10px_0_#64FFDA50] hover:-translate-y-2 transition transform duration-300 ease-in-out flex flex-col gap-2 border-primaryColor p-4 rounded-2xl sm-mx:p-2"
+          className="border shadow-[0_0_10px_0_#64FFDA50] hover:-translate-y-2 transition transform 
+            duration-300 ease-in-out flex flex-col gap-2 border-primaryColor p-4 rounded-2xl sm-mx:p-2"
         >
           <div className="flex gap-2 items-center">
             <img className="rounded-lg w-16 md-mx:w-14" src="" alt="Company" />
