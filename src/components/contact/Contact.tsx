@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import FloatingInput from "./FloatingInput";
 import { Button, useMatches } from "@mantine/core";
 import { IconArrowRight, IconTopologyStar3 } from "@tabler/icons-react";
+import validateForm from "../Validation";
+import toast from "react-hot-toast";
+import { sendContactMessage } from "@/services/api/contact";
+import { ContactFormData } from "@/types/contact";
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,13 +16,16 @@ const Contact = () => {
     lg: "lg"
   })
 
-  const form = {
+  const form: ContactFormData = {
     name: "",
     email: "",
     phone: "",
     message: "",
   }
-  const [formData, setFormData] = useState<{[key: string]: string}>(form);
+  
+  const [formData, setFormData] = useState<ContactFormData>(form);
+  const [formError, setFormError] = useState<ContactFormData>(form);
+
 
   useEffect(() => {
     // Simulate loading time for consistency with other components
@@ -29,6 +36,36 @@ const Contact = () => {
 
   const handleChange = (id: string, value: string) => {
     setFormData({ ...formData, [id]: value });
+    setFormError({ ...formError, [id]: validateForm(id, value) });
+  }
+
+  const handleSubmit = async() => {
+    let valid = true;
+    let newFormError: ContactFormData = {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    };
+
+    (Object.keys(formData) as Array<keyof ContactFormData>).forEach(key => {
+      const error = validateForm(key, formData[key]);
+      if (error.length > 0) {
+        valid = false;
+        newFormError[key] = error;
+      }
+    });
+    setFormError(newFormError);
+
+    if (valid) {
+      const result = await sendContactMessage(formData);
+      if (result.success) {
+        toast.success("Message sent successfully");
+        setFormData(form); // Reset form
+      } else {
+        toast.error("Failed to send message");
+      }
+    }
   }
 
   return (
@@ -57,12 +94,13 @@ const Contact = () => {
                 Let's Connect 
                 <IconTopologyStar3 size={30} className="w-10 text-primaryColor h-10 sm-mx:w-7 sm-mx:h-7" />
               </div>
-              <FloatingInput id="name" name="name" value={formData.name} handleChange={handleChange} />
-              <FloatingInput id="email" name="email" value={formData.email} handleChange={handleChange} />
-              <FloatingInput id="phone" name="phone" value={formData.phone} handleChange={handleChange} />
-              <FloatingInput id="message" name="message" value={formData.message} handleChange={handleChange} />
+              <FloatingInput id="name" name="name" value={formData.name} handleChange={handleChange} error={formError.name} />
+              <FloatingInput id="email" name="email" value={formData.email} handleChange={handleChange} error={formError.email} />
+              <FloatingInput id="phone" name="phone" value={formData.phone} handleChange={handleChange} error={formError.phone} />
+              <FloatingInput id="message" name="message" value={formData.message} handleChange={handleChange} error={formError.message} />
               <Button 
                 fullWidth
+                onClick={handleSubmit}
                 rightSection={<IconArrowRight size={20} />}
                 className="!text-bgColor !font-bold !text-2xl" 
                 variant="filled" 
