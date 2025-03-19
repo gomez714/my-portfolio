@@ -13,11 +13,16 @@ module.exports = {
       animation: {
         backgroundPositionSpin:
           "background-position-spin 3000ms infinite alternate",
+        'fade-in': 'fade-in 0.5s ease-in forwards',
       },
       keyframes: {
         "background-position-spin": {
           "0%": { backgroundPosition: "top center" },
           "100%": { backgroundPosition: "bottom center" },
+        },
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
         },
       },
     },
