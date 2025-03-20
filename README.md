@@ -1,46 +1,146 @@
-# Getting Started with Create React App
+# Personal Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive portfolio website built with React and TypeScript. This application showcases my professional work, skills, and experience in an interactive and visually appealing way.
 
-## Available Scripts
+[![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-4.9.5-blue.svg)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4.1-38B2AC.svg)](https://tailwindcss.com/)
 
-In the project directory, you can run:
+## 🌟 Live Demo
 
-### `npm start`
+[View Live Demo](https://portfolio-5bdb9.web.app/) <!-- Replace with your actual deployed URL -->
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 📸 Screenshots
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Home Page
+![Portfolio Home Page](public/screenshots/home.png)
 
-### `npm test`
+## ✨ Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🎨 Modern Design & UX
+- Responsive layout that adapts to all screen sizes
+- Dark/Light mode with smooth transitions
+- Interactive UI elements with hover effects
+- Custom scrollbar and smooth scrolling
 
-### `npm run build`
+### 🚀 Performance & Technical
+- Optimized bundle size for fast loading
+- Lazy-loaded components for better performance
+- SEO-friendly with meta tags
+- Progressive Web App (PWA) capabilities
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🛠️ Functionality
+- Interactive project showcase with filtering
+- PDF viewer for downloadable documents
+- Animated skill cloud visualization
+- Contact form with Firebase integration
+- Blog section with markdown support
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🎯 User Experience
+- Smooth page transitions
+- Loading states and animations
+- Error boundaries for graceful failure handling
+- Accessible design following WCAG guidelines
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ Technologies Used
 
-### `npm run eject`
+### Frontend
+- **Framework:** React 18 with TypeScript
+- **Styling:** 
+  - Tailwind CSS for utility-first styling
+  - Mantine UI Components for consistent design
+  - Emotion for dynamic styling
+- **Animations & Effects:**
+  - AOS (Animate On Scroll) for scroll animations
+  - Vanta.js for interactive background effects
+  - Typewriter Effect for dynamic text
+- **State Management & Forms:** Mantine Hooks & Form
+- **Icons:** Tabler Icons, Lucide React
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Backend & Storage
+- Firebase for authentication and data storage
+- React-PDF for document handling
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Development Tools
+- CRACO for custom webpack configuration
+- TypeScript for type safety
+- ESLint for code quality
+- Git for version control
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🚀 Why This Stack?
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This portfolio was built with modern web technologies chosen for their:
+- **Performance:** React 18's concurrent features and optimized rendering
+- **Type Safety:** TypeScript for better development experience and fewer runtime errors
+- **Styling:** Tailwind CSS + Mantine for rapid development and consistent design
+- **Scalability:** Firebase for easy backend integration and future expansion
+- **Developer Experience:** Modern tooling for efficient development workflow
 
-## Learn More
+## 🏗️ Project Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+my-portfolio/
+├── src/
+│   ├── components/     # Reusable UI components
+│   ├── pages/         # Page components
+│   ├── styles/        # Global styles and Tailwind config
+│   ├── utils/         # Utility functions
+│   └── App.tsx        # Main application component
+├── public/            # Static assets
+└── package.json       # Project dependencies and scripts
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone [your-repository-url]
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Start the development server:
+```bash
+npm start
+# or
+yarn start
+```
+
+The application will open in your default browser at `http://localhost:3000`.
+
+## 📝 Available Scripts
+
+- `npm start` - Runs the app in development mode
+- `npm test` - Launches the test runner
+- `npm run build` - Builds the app for production
+- `npm run eject` - Ejects from Create React App (one-way operation)
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📧 Contact
+
+- Portfolio: [https://portfolio-5bdb9.web.app/]
+- LinkedIn: [www.linkedin.com/in/luis-gomez-g714]
+- Email: [lgomez00714@gmail.com](mailto:lgomez00714@gmail.com)
+- GitHub: [https://github.com/gomez714]
+
+---
+Made with ❤️ by Luis Gomez
