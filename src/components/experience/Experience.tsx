@@ -3,6 +3,7 @@ import { Timeline, useMatches } from "@mantine/core";
 import { IconBriefcaseFilled } from "@tabler/icons-react";
 import { ExperienceService } from "../../services/api";
 import type { Experience as ExperienceType } from "../../types/experience.types";
+import ExperienceLoadingPlaceholder from '../common/ExperienceLoadingPlaceholder';
 
 interface TimelineItemProps {
   item: ExperienceType;
@@ -81,32 +82,16 @@ const Experience = () => {
       <h1 className="text-4xl sm-mx:text-3xl xs-mx:text-2xl mb-10 font-bold text-center text-white">
         <span className="text-primaryColor">04.&nbsp;</span>Experience
       </h1>
-      <Timeline color="primaryColor" active={5} bulletSize={dot} lineWidth={2}>
-        {isLoading ? (
-          <>
-            <Timeline.Item bullet={<IconBriefcaseFilled className="!text-bgColor" size={size} />}>
-              <div className="h-48 bg-gray-700 rounded-2xl animate-pulse"></div>
-            </Timeline.Item>
-            <Timeline.Item bullet={<IconBriefcaseFilled className="!text-bgColor" size={size} />}>
-              <div className="h-48 bg-gray-700 rounded-2xl animate-pulse"></div>
-            </Timeline.Item>
-            <Timeline.Item bullet={<IconBriefcaseFilled className="!text-bgColor" size={size} />}>
-              <div className="h-48 bg-gray-700 rounded-2xl animate-pulse"></div>
-            </Timeline.Item>
-            <Timeline.Item bullet={<IconBriefcaseFilled className="!text-bgColor" size={size} />}>
-              <div className="h-48 bg-gray-700 rounded-2xl animate-pulse"></div>
-            </Timeline.Item>
-            <Timeline.Item bullet={<IconBriefcaseFilled className="!text-bgColor" size={size} />}>
-              <div className="h-48 bg-gray-700 rounded-2xl animate-pulse"></div>
-            </Timeline.Item>
-          </>
-        ) : (
-          experiences.map((item) => (
+      {isLoading ? (
+        <ExperienceLoadingPlaceholder />
+      ) : (
+        <Timeline color="primaryColor" active={5} bulletSize={dot} lineWidth={2}>
+          {experiences.map((item) => (
             <TimelineItem key={`${item.company}-${item.role}`} item={item} />
-          ))
-        )}
-        <Timeline.Item bullet={<IconBriefcaseFilled className="!text-bgColor" size={size} />}></Timeline.Item>
-      </Timeline>
+          ))}
+          <Timeline.Item bullet={<IconBriefcaseFilled className="!text-bgColor" size={size} />}></Timeline.Item>
+        </Timeline>
+      )}
     </div>
   );
 };
