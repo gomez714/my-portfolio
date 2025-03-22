@@ -2,21 +2,24 @@ import { Badge, Button, Card, Group, Image, Indicator, Text, useMatches } from "
 import { useDisclosure } from "@mantine/hooks";
 import FullProjectModal from "./FullProjectModal";
 import { Project } from "../../types/project.types";
+import StatusBadge from "../common/StatusBadge";
 
 const ProjectCard = ({ project }: { project: Project }) => {
   const [opened, { open, close }] = useDisclosure(false);
   const badge=useMatches({
       xsm:"sm", md:"md", lg:"lg"
   });
+  
   const btn =useMatches({
     xs:"xs", sm:"sm", md:"md"
-});
-  
+  });
+
   return (
     <div className="w-[32%] lg-mx:w-[46%] md-mx:w-[48%] sm-mx:w-[90%] xs-mx:w-full" data-aos="fade-up" data-aos-duration="800">
       <Card onClick={open}  
         className="!bg-bgColor cursor-pointer transition-transform duration-300 ease-in-out hover:!scale-[1.02] mb-5 
-          hover:!shadow-[0_0_10px_1px_#64FFDA80] xs-mx:!shadow-[0_0_10px_1px_#64FFDA80] !border-primaryColor border-2"  
+          hover:!shadow-[0_0_10px_1px_#64FFDA80] xs-mx:!shadow-[0_0_10px_1px_#64FFDA80] !border-primaryColor border-2
+          flex flex-col justify-between min-h-[480px]"  
         shadow="lg" 
         padding="sm" 
         radius="lg" 
@@ -24,39 +27,46 @@ const ProjectCard = ({ project }: { project: Project }) => {
       >
         <Card.Section className="p-3">
           <Image
-            className="!rounded-xl !shadow-[0_0_5px_0_#64FFDA]"
+            className="!rounded-xl !shadow-[0_0_5px_0_#64FFDA] object-cover h-[200px] w-full"
             src={project.image}
             alt={project.image}
           />
         </Card.Section>
 
-        <Group justify="space-between" mt="xs" mb="xs">
-          <div 
-            className="!text-2xl gap-2 !font-bold !text-white flex items-center sm-mx:!text-xl" 
-          >
-            {project.title}{project.live === true && 
-              <Badge 
-                className="!px-1" 
-                variant="outline" 
-                color="red" 
-                rightSection={<Indicator className="!mr-0.5 !z-0" color="red" position="middle-end" size={7} processing></Indicator>} 
-              >
-                Live
-              </Badge>
-            }
-          </div>
+        <div className="flex flex-col flex-grow">
+          <Group justify="space-between" mt="xs" mb="xs">
+            <div 
+              className="!text-2xl gap-2 !font-bold !text-white flex items-center sm-mx:!text-xl" 
+            >
+              {project.title}{project.live === true && 
+                <Badge 
+                  className="!px-1" 
+                  variant="outline" 
+                  color="red" 
+                  rightSection={<Indicator className="!mr-0.5 !z-0" color="red" position="middle-end" size={7} processing></Indicator>} 
+                >
+                  Live
+                </Badge>
+              }
+            </div>
 
-        </Group>
-        <Group mb="sm" className="!gap-2">
-            {project.technologies.map((tech: string, index: number) => index < 3 && 
-              <Badge key={tech} size={badge} variant="light" color="#64FFDA">{tech}</Badge>)
-            }
-        </Group>
-        <Text className="!text-justify !text-sm xs-mx:!text-xs" lineClamp={5} size="sm" c="dimmed">
-            {project.desc}
-        </Text>
+          </Group>
+          <Group mb="sm" className="!gap-2">
+              {project.technologies.map((tech: string, index: number) => index < 3 && 
+                <Badge key={tech} size={badge} variant="light" color="#64FFDA">{tech}</Badge>)
+              }
+          </Group>
+          <Group mb="sm" className="!gap-2 mt-2">
+            <StatusBadge status={project.status} />
+          </Group>
+          <Text className="!text-justify !text-sm xs-mx:!text-xs h-[100px] overflow-hidden" lineClamp={5} size="sm" c="dimmed">
+              {project.description}
+          </Text>
+        </div>
 
-        <Button onClick={open} className="" color="#64FFDA" variant="outline" mt="md" radius="md">
+        
+
+        <Button onClick={open} className="mt-auto" color="#64FFDA" variant="outline" mt="md" radius="md">
             Show More
         </Button>
       </Card>
