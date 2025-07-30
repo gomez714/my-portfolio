@@ -1,6 +1,6 @@
 import "@mantine/core/styles.css"
 import './App.css';
-import HomePage from './pages/HomePage';
+import HomePage from './Pages/HomePage';
 import { MantineProvider, createTheme } from '@mantine/core';
 import { pdfjs } from "react-pdf";
 import AOS from 'aos';
